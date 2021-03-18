@@ -1,0 +1,50 @@
+ * {
+  box-sizing: border-box;
+   }
+ .timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+
+  .timer-box {
+    height: 500px;
+    padding: 100px;
+
+    .timer {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      background-color: white;
+      border: solid 2px #41403e;
+      border-radius: 9px;
+      .timer-indicator {
+        flex: 1;
+        max-width: unset;
+        padding-left: 60px;
+        .timer-value {
+          font-size: 45px;
+        }
+      }
+      .timer-action-buttons {
+        display: flex;
+        justify-content: space-between;
+        button {
+          width: 100%;
+          margin-right: 4px;
+          .icon{
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+

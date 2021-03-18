@@ -1,0 +1,21 @@
+<div class="timer-container" *ngIf="{timer: timer$ |async} as data">
+  <img class="card-img rounded-0 border-0" [src]="backgroundImage$ | async" alt="Card image">
+  <div class="container card-img-overlay">
+    <div class="timer-box col">
+      <div class="timer row">
+        <div class="timer-indicator col col-lg-6">
+          <h1 class="timer-value">{{ data.timer | timer}}</h1>
+        </div>
+        <div class="timer-action-buttons col col-lg-4">
+          <button class="btn btn-success" tooltip="start" (click)="startTimer()" [disabled]="data.timer"><i class="icon icon-play3"></i></button>
+          <button class="btn btn-secondary" tooltip="pause" (click)="pauseTimer(data.timer)" [disabled]="!data.timer"><i class="icon icon-pause2"></i></button>
+          <button class="btn btn-danger" tooltip="stop" (click)="stopTimer()" [disabled]="!data.timer"><i class="icon icon-stop2"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
