@@ -2,7 +2,6 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import *as timer from './timer.reducer';
 import { TimerState } from './timer.state';
 
-
 export const TIMER_STATE = 'timer';
 
 const getTimerState = createFeatureSelector<TimerState>(TIMER_STATE);
