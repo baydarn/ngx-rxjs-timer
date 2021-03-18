@@ -54,7 +54,7 @@ export class TimerComponent implements OnInit,OnDestroy{
     this.timerDestroy$.next(); //timerdestroy bir akış gerçekleştiriyorum next ile
     this.store.dispatch(setTimer({ value:0 })); //store'da tuttuğum değeri sıfırlıyorum setTimer aksiyonunu dispatch ederek
     this.imageNumber$.pipe(take(1)).subscribe(imageNumber => this.store.dispatch(setImageNumber( { value: this.getNumber(imageNumber)})) ) //state'teki background'ı güncelleme
-    console.log("çalıştır")
+
   }
   getNumber(currentNumber){ 
     const randomNumber = Math.floor(Math.random() * 4) + 1 ;
