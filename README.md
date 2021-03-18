@@ -1,10 +1,10 @@
 # TimerApp
 
-First run ```"npm install"``` and then run ```"ng serve"``` to see the application in action.🚀
+First run ```"npm install"``` and then run ```"ng serve"``` to see the application in action.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
- **Demo [here](https://ngx-rxjs-timer.vercel.app/)**
+ **Demo [here](https://ngx-rxjs-timer.vercel.app/)**🚀
 
 ## Development server
 
