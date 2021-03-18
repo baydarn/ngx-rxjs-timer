@@ -44,21 +44,21 @@ export class TimerComponent implements OnInit,OnDestroy{
   pauseTimer(time) {
     this.timerPause = !this.timerPause;
     if (this.timerPause) {
-      this.timerDestroy$.next(); //next dediğimiz için yukarıdaki subscription'ı bitirdi.takeUntil içine timerDestroy'u vermemiz
+      this.timerDestroy$.next(); //next dediğim için yukarıdaki subscription'ı bitirdi.
     } else {
-      this.startTimer(); //timer'ın kaldığı değerden itibaren çalışıyor.oradan itibaren toplayarak devam ediyor
+      this.startTimer(); //timer'ın kaldığı değerden itibaren çalışıyor,oradan itibaren toplayarak devam ediyor
     }
   }
 
   stopTimer(){
     this.timerDestroy$.next(); //timerdestroy bir akış gerçekleştiriyorum next ile
     this.store.dispatch(setTimer({ value:0 })); //store'da tuttuğum değeri sıfırlıyorum setTimer aksiyonunu dispatch ederek
-    this.imageNumber$.pipe(take(1)).subscribe(imageNumber => this.store.dispatch(setImageNumber( { value: this.getNumber(imageNumber)})) ) //state'te o background'ı güncelle diyoruz
+    this.imageNumber$.pipe(take(1)).subscribe(imageNumber => this.store.dispatch(setImageNumber( { value: this.getNumber(imageNumber)})) ) //state'teki background'ı güncelleme
     console.log("çalıştır")
   }
-  getNumber(currentNumber){ //diyelimki 1.resim geldi.number random oluşturdum
+  getNumber(currentNumber){ 
     const randomNumber = Math.floor(Math.random() * 4) + 1 ;
-    if(currentNumber == randomNumber){ // oluşturduğu değeri döner.dönebileceği random bir değer bulana kadar devam eder
+    if(currentNumber == randomNumber){ // oluşturduğu değeri döner,dönebileceği random bir değer bulana kadar devam eder
       return this.getNumber(currentNumber);
     }
       return randomNumber;
@@ -66,7 +66,7 @@ export class TimerComponent implements OnInit,OnDestroy{
 
   ngOnDestroy(){
     this.timerDestroy$.next();
-    this.timerDestroy$.complete();
+    this.timerDestroy$.complete(); //her subscribe'ın bir unsubscribe'ı olmalıdır!
   }
 
 }
