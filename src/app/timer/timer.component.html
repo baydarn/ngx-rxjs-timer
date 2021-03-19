@@ -8,7 +8,7 @@
         </div>
         <div class="timer-action-buttons col col-lg-4">
           <button class="btn btn-success" tooltip="start" (click)="startTimer()" [disabled]="data.timer"><i class="icon icon-play3"></i></button>
-          <button class="btn btn-secondary" tooltip="pause" (click)="pauseTimer(data.timer)" [disabled]="!data.timer"><i class="icon icon-pause2"></i></button>
+          <button class="btn btn-secondary" tooltip="pause" (click)="pauseTimer()" [disabled]="!data.timer"><i class="icon icon-pause2"></i></button>
           <button class="btn btn-danger" tooltip="stop" (click)="stopTimer()" [disabled]="!data.timer"><i class="icon icon-stop2"></i></button>
         </div>
       </div>
