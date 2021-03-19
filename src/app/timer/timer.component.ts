@@ -41,7 +41,7 @@ export class TimerComponent implements OnInit,OnDestroy{
       .subscribe((value) => this.store.dispatch(setTimer({ value })));
 
   }
-  pauseTimer(time) {
+  pauseTimer() {
     this.timerPause = !this.timerPause;
     if (this.timerPause) {
       this.timerDestroy$.next(); //next dediğim için yukarıdaki subscription'ı bitirdi.
