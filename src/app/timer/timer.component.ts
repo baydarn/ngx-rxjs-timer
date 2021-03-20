@@ -65,8 +65,8 @@ export class TimerComponent implements OnInit,OnDestroy{
   }
 
   ngOnDestroy(){
-    this.timerDestroy$.next();
-    this.timerDestroy$.complete(); //her subscribe'ın bir unsubscribe'ı olmalıdır!
+    this.timerDestroy$.next();//her subscribe'ın bir unsubscribe'ı olmalıdır!
+    //this.timerDestroy$.complete(); 
   }
 
 }
