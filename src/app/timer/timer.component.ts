@@ -32,13 +32,13 @@ export class TimerComponent implements OnInit,OnDestroy{
     this.timerDestroy$.next();
     this.timer$
       .pipe(
-        take(1), //timer'da artış gerçekleşmiyor çünkü take(1) kullandık.1 kere subscribe olmayı sağlar
-        switchMap((timerValue) => //stream değiştirmek istediğimiz için switchMap kullandık
+        take(1), //timer'da artış gerçekleşmiyor çünkü take(1) kullandım.1 kere subscribe olmayı sağlar
+        switchMap((timerValue) => //stream değiştirmek istediğim için switchMap kullandım
           interval(1000).pipe(map((interval) => interval + timerValue))
         ),
-        takeUntil(this.timerDestroy$)
+        takeUntil(this.timerDestroy$) //timer'ı durdurabilmek için(filtrelemek için)
       )
-      .subscribe((value) => this.store.dispatch(setTimer({ value })));
+      .subscribe((value) => this.store.dispatch(setTimer({ value }))); //timer değerini güncelleme işlemi
 
   }
   pauseTimer() {
@@ -52,11 +52,11 @@ export class TimerComponent implements OnInit,OnDestroy{
 
   stopTimer(){
     this.timerDestroy$.next(); //timerdestroy bir akış gerçekleştiriyorum next ile
-    this.store.dispatch(setTimer({ value:0 })); //store'da tuttuğum değeri sıfırlıyorum setTimer aksiyonunu dispatch ederek
-    this.imageNumber$.pipe(take(1)).subscribe(imageNumber => this.store.dispatch(setImageNumber( { value: this.getNumber(imageNumber)})) ) //state'teki background'ı güncelleme
+    this.store.dispatch(setTimer({ value:0 })); //setTimer aksiyonunu dispatch ederek store'da tuttuğum değeri sıfırlıyorum
+    this.imageNumber$.pipe(take(1)).subscribe(imageNumber => this.store.dispatch(setImageNumber( { value: this.getNumber(imageNumber)})) ) //state'teki background'ı güncelleme işlemi
 
   }
-  getNumber(currentNumber){ 
+  getNumber(currentNumber){ //background'ı değiştirdiğimde üst üste aynı resim gelmesin diye(rekürsif fonksiyon)
     const randomNumber = Math.floor(Math.random() * 4) + 1 ;
     if(currentNumber == randomNumber){ // oluşturduğu değeri döner,dönebileceği random bir değer bulana kadar devam eder
       return this.getNumber(currentNumber);
