@@ -36,7 +36,7 @@ export class TimerComponent implements OnInit,OnDestroy{
         switchMap((timerValue) => //stream değiştirmek istediğim için switchMap kullandım
           interval(1000).pipe(map((interval) => interval + timerValue))
         ),
-        takeUntil(this.timerDestroy$) //timer'ı durdurabilmek için(filtrelemek için)
+        takeUntil(this.timerDestroy$) //unsubscribe olabilmek için
       )
       .subscribe((value) => this.store.dispatch(setTimer({ value }))); //timer değerini güncelleme işlemi
 
